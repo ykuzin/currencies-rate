@@ -1,0 +1,31 @@
+{
+  "name": "untitled2",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "set NODE_ENV=dev&& node -r dotenv/config ./src/app.js",
+    "updateData": "set NODE_ENV=dev&& node -r dotenv/config ./src/utils/updateData/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "express": "~4.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.6"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.10.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-prettier-standard": "^3.0.1",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "prettier": "2.2.1",
+    "prettier-config-standard": "^1.0.1"
+  }
+}
