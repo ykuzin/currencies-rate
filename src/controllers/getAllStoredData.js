@@ -12,10 +12,9 @@ async function getAllStoredData(req, res) {
         limit = 5
       }
       res.send(
-        await Currency.find()
-          .limit(limit)
-          .skip(skip)
-          .select({ cc: 1, txt: 1, rate: 1 })
+        (
+          await Currency.find().limit(limit).skip(skip)
+        ).map(({ cc, txt, rate }) => ({ cc, txt, rate }))
       )
     } catch (e) {
       console.log(e.message)
@@ -23,7 +22,9 @@ async function getAllStoredData(req, res) {
   } else {
     try {
       const txt = req.query.name
-      res.send(await Currency.find({ txt }))
+      const curr = await Currency.find({ txt })
+
+      res.send(curr.map(({ cc, txt, rate }) => ({ cc, txt, rate })))
     } catch (e) {
       console.log(e.message)
     }

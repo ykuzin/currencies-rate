@@ -1,12 +1,7 @@
 const axios = require('axios')
 const { MONGO_URI } = process.env
 const { connect, connection } = require('mongoose')
-const mongoConnectionOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true
-}
+const mongoConnectionOptions = require('../../config')
 const { Currency } = require('../../models')
 
 const updateData = async () => {

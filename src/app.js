@@ -8,12 +8,7 @@ const router = require('./router')
 
 const { MONGO_URI, PORT = 3000 } = process.env
 
-const mongoConnectionOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true
-}
+const mongoConnectionOptions = require('./config')
 
 connect(MONGO_URI, mongoConnectionOptions).then(() =>
   console.log('Connected to db')
