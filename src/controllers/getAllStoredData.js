@@ -6,10 +6,9 @@ async function getAllStoredData(req, res) {
     try {
       !req.query.limit ? (limit = 5) : (limit = Number(req.query.limit))
       !req.query.page ? (page = 1) : (page = Number(req.query.page))
-      let skip = (page - 1) * limit
+      const skip = (page - 1) * limit
       if (skip + limit > (await Currency.countDocuments())) {
-        skip = 0
-        limit = 5
+        return res.sendStatus(404)
       }
       res.send(
         (
